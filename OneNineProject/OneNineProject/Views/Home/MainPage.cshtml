@@ -1,20 +1,19 @@
-﻿@{ 
+﻿@{
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
-
 @using System.Reflection
 @model IEnumerable<OneNineProject.Models.DocViewModel>
 
 <!DOCTYPE html>
 <html>
 <head>
-    
+
 </head>
 <body>
     @section left_sidebar {
-    <div class="new_doc">
-        <h4>Додати нову заяву <a href="~/Add/AddView">Вперед &raquo;</a></h4>
-    </div>
+        <div class="new_doc">
+            <h4>Додати нову заяву <a href="~/Add/AddView">Вперед &raquo;</a></h4>
+        </div>
     }
     @section content {
         <table class="table">
@@ -29,22 +28,22 @@
                 <td class="NotesTd">Примітки</td>
                 <td>Дії</td>
             </tr>
-            @foreach(var doc in Model)
+            @foreach (var doc in Model)
             {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => doc.DocId) @Html.DisplayFor(modelItem => doc.Seсrecy)</td>
-                <td>@Html.DisplayFor(modelItem => doc.DocDate)</td>
-                <td>@Html.DisplayFor(modelItem => doc.ReceiveDate)</td>
-                <td>@Html.DisplayFor(modelItem => doc.Unit) <br/> @Html.DisplayFor(modelItem => doc.Persons)</td>
-                <td>@Html.DisplayFor(modelItem => doc.WorkTypes)</td>
-                <td>@Html.DisplayFor(modelItem => doc.Executors)</td>
-                <td>@Html.DisplayFor(modelItem => doc.CheckMarks)</td>
-                <td>@Html.DisplayFor(modelItem => doc.Notes)</td>
-                <td>
-                    @Html.ActionLink("Edit", "EditDoc", "Edit", new { DocId = doc.DocId }, null)<br />
-                    <!--Html.ActionLink("Delete", "Delete", new { id = doc.DocId })-->
-                </td>
-            </tr>
+                <tr>
+                    <td>@Html.DisplayFor(x => doc.DocId) @Html.DisplayFor(x => doc.Seсrecy)</td>
+                    <td>@Html.DisplayFor(x => doc.DocDate)</td>
+                    <td>@Html.DisplayFor(x => doc.ReceiveDate)</td>
+                    <td>@Html.DisplayFor(x => doc.Unit) <br/>
+                        @Html.DisplayFor(x => doc.Persons)</td>
+                    <td>@Html.DisplayFor(x => doc.WorkTypes)</td>
+                    <td>@Html.DisplayFor(x => doc.Executors)</td>
+                    <td>@Html.DisplayFor(x => doc.CheckMarks)</td>
+                    <td>@Html.DisplayFor(x => doc.Notes)</td>
+                    <td>@Html.ActionLink("Edit", "EditDoc", "Edit", new { Id = doc.DocId }, null) <br/>
+                        @Html.ActionLink("Delete", "DeleteDoc","Delete", new { Id = doc.DocId }, null)
+                    </td>
+                </tr>
             }
         </table>
     }

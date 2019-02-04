@@ -8,6 +8,16 @@ namespace OneNineProject.Models
 {
     public interface IRepository
     {
-       
+        DocViewModel FindDoc(int Id);
+
+        void AddDoc(DocViewModel NewDoc);
+
+        void DeleteDoc(int Id);
+
+        void UpdateDoc(DocViewModel updDoc);
+
+        List<DocViewModel> DocsToList();
+
+        void Save();
     }
 }

@@ -3,14 +3,20 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Web;
-using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+
 
 namespace OneNineProject.Models
 {
     public class DocViewModel
     { 
-        [Display(Name="Document number:")]
+        
+        [Key]
+        [Display(Name = "Document number:")]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         //Номер бумаги, он же Id этой бумаги
         public int DocId { get; set; }
 

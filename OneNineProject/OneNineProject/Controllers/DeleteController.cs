@@ -7,18 +7,20 @@ using OneNineProject.Models;
 
 namespace OneNineProject.Controllers
 {
-    public class HomeController : Controller
+    public class DeleteController : Controller
     {
-
         private readonly IRepository rep;
 
-        public HomeController(IRepository r)
+        public DeleteController(IRepository r)
         {
             rep = r;
         }
-        public ActionResult MainPage()
+
+        public ActionResult DeleteDoc(int Id)
         {
-            return View(rep.DocsToList());
+            rep.DeleteDoc(Id);
+            rep.Save();
+            return RedirectToRoute("MainPage");
         }
     }
 }
