@@ -1,0 +1,75 @@
+﻿@using System.Web.UI.HtmlControls
+@using OneNineProject.Models
+
+@{
+    ViewBag.Title = "EditView";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@model OneNineProject.Models.DocViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/Content/AddView.css" />
+</head>
+<body>
+@section content{
+    <h2>Сторінка редагування заявки:</h2>
+    <table>
+        @using (Html.BeginForm("EditDoc", "Edit", FormMethod.Post))
+        {
+            <tr>
+                <td>@Html.LabelFor(model => model.DocId)</td>
+                <td>@Html.EditorFor(model => model.DocId)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.Seсrecy)</td>
+                <td>@Html.EditorFor(model => model.Seсrecy)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.DocDate)</td>
+                <td>@Html.EditorFor(model => model.DocDate)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.ReceiveDate)</td>
+                <td>@Html.EditorFor(model => model.ReceiveDate)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.Unit)</td>
+                <td>@Html.EditorFor(model => model.Unit)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.Persons)</td>
+                <td>@Html.EditorFor(model => model.Persons)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.WorkTypes)</td>
+                <td>@Html.EditorFor(model => model.WorkTypes)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.Executors)</td>
+                <td>@Html.EditorFor(model => model.Executors)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.CheckMarks)</td>
+                <td>@Html.EditorFor(model => model.CheckMarks)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.Notes)</td>
+                <td>@Html.EditorFor(model => model.Notes)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.Status)</td>
+                <td>@Html.EditorFor(model => model.Status)</td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Оновити" /></td>
+            </tr>
+        }
+
+    </table>
+}
+</body>
+</html>
+

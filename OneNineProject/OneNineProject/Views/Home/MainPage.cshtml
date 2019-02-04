@@ -1,0 +1,52 @@
+﻿@{ 
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using System.Reflection
+@model IEnumerable<OneNineProject.Models.DocViewModel>
+
+<!DOCTYPE html>
+<html>
+<head>
+    
+</head>
+<body>
+    @section left_sidebar {
+    <div class="new_doc">
+        <h4>Додати нову заяву <a href="~/Add/AddView">Вперед &raquo;</a></h4>
+    </div>
+    }
+    @section content {
+        <table class="table">
+            <tr>
+                <td>Вх№/Вих№</td>
+                <td>Дата реєстрації заявки</td>
+                <td>Дата отримання заявки</td>
+                <td>Замовник робіт</td>
+                <td>Тип робіт</td>
+                <td>Виконаці</td>
+                <td>Відмітки про хід виконання</td>
+                <td class="NotesTd">Примітки</td>
+                <td>Дії</td>
+            </tr>
+            @foreach(var doc in Model)
+            {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => doc.DocId) @Html.DisplayFor(modelItem => doc.Seсrecy)</td>
+                <td>@Html.DisplayFor(modelItem => doc.DocDate)</td>
+                <td>@Html.DisplayFor(modelItem => doc.ReceiveDate)</td>
+                <td>@Html.DisplayFor(modelItem => doc.Unit) <br/> @Html.DisplayFor(modelItem => doc.Persons)</td>
+                <td>@Html.DisplayFor(modelItem => doc.WorkTypes)</td>
+                <td>@Html.DisplayFor(modelItem => doc.Executors)</td>
+                <td>@Html.DisplayFor(modelItem => doc.CheckMarks)</td>
+                <td>@Html.DisplayFor(modelItem => doc.Notes)</td>
+                <td>
+                    @Html.ActionLink("Edit", "EditDoc", "Edit", new { DocId = doc.DocId }, null)<br />
+                    <!--Html.ActionLink("Delete", "Delete", new { id = doc.DocId })-->
+                </td>
+            </tr>
+            }
+        </table>
+    }
+</body>
+</html>>

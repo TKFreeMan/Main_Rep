@@ -1,0 +1,29 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <title>MainPage</title>
+    <link rel="stylesheet" href="~/Content/MainLayout.css" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="inner_header">
+                <h1>ОН-ЛАЙН БАЗА ВІДПРАЦЮВАННЯ ЗАЯВОК</h1>
+                <nav>
+                    <a href="~/Home/MainPage">Головна</a>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="left_sidebar">
+                <div class="inner-left_sidebar">@RenderSection(name: "left_sidebar", required:false)</div>
+            </div>
+            <div class="content">
+                <div class="inner-content">@RenderSection("content")</div>
+            </div>
+        </div>
+        <div class="footer"></div>
+    </div>
+    @RenderBody();
+</body>
+</html>
